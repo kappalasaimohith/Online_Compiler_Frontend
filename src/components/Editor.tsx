@@ -144,7 +144,7 @@ const Editor = () => {
         </div>
         <pre 
           className={`text-lg font-mono whitespace-pre-wrap break-words rounded-lg shadow-md p-4 transition-all ${isDarkMode ? 'bg-gray-800' : 'bg-white'} ${outputColor}`}
-          style={{ display: output ? 'block' : 'none' }} // Conditionally hide or show the pre tag based on output
+          style={{ display: output ? 'block' : 'none' }}
         >
           {output}
         </pre>
