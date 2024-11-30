@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .editor-container {
+    @apply grid grid-cols-2 h-screen bg-gray-800 font-mono;
+  }
+
+  .editor-section {
+    @apply flex flex-row col-span-1 bg-gray-900 p-5 border-r border-gray-600 relative;
+  }
+
+  .language-selector {
+    @apply flex flex-col gap-3 items-center mr-4;
+  }
+
+  .icon-button {
+    @apply w-12 h-12 flex justify-center items-center rounded-full transition-transform bg-gray-600 hover:bg-blue-700;
+  }
+
+  .textarea-container {
+    @apply flex flex-col w-full relative;
+  }
+
+  .file-name-bar {
+    @apply bg-gray-700 p-2 border-b border-gray-600 text-left;
+  }
+
+  .file-name {
+    @apply text-white text-sm;
+  }
+
+  .textarea {
+    @apply w-full flex-1 bg-gray-900 text-white border-none outline-none resize-none text-lg leading-6 p-4;
+  }
+
+  .run-button {
+    @apply bg-blue-600 text-white p-3 rounded-md text-lg w-full;
+  }
+
+  .output-section {
+    @apply flex flex-col col-span-1 bg-gray-900 p-5 border-l border-gray-600;
+  }
+
+  .output-header {
+    @apply flex justify-between items-center mb-3;
+  }
+
+  .clear-button {
+    @apply bg-red-600 text-white p-2 rounded-md;
+  }
+
+  .output-text {
+    @apply text-green-500 text-lg font-mono whitespace-pre-wrap break-words;
+  } 
+}
+
