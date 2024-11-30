@@ -7,7 +7,7 @@ import { cpp } from '@codemirror/lang-cpp';
 import samplecode from './SampleCode';
 
 interface LanguageConfig {
-  extension: any;
+  extension: typeof python ;
   icon: string;
   fileExtension: string;
   sampleCode: string;
@@ -24,12 +24,6 @@ const languages: Languages = {
   php: { extension: php, icon: 'icons/php.svg', fileExtension: '.php', sampleCode: samplecode.php },
   rust: { extension: rust, icon: 'icons/rust.svg', fileExtension: '.rs', sampleCode: samplecode.rust },
   cpp: { extension: cpp, icon: 'icons/cpp.svg', fileExtension: '.cpp', sampleCode: samplecode.cpp },
-  swift: {
-    sampleCode: `print("Hello, World!")`,
-    fileExtension: '.swift',
-    icon: '/icons/swift.png',
-    extension: () => 'swift',
-  },
 };
 
 export default languages;

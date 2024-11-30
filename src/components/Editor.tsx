@@ -41,8 +41,8 @@ const Editor = () => {
       const result = await response.json();
       setOutputColor(result.isError ? 'text-red-500' : 'text-green-500');
       return result.output;
-    } catch (error: any) {
-      return `Error: ${error.message}`;
+    } catch (error) {
+      return `Error: ${error}`;
     }
   };
 
@@ -50,15 +50,13 @@ const Editor = () => {
     setIsLoading(true);
     setOutput('');
     let outputBuffer = '';
-    let isError = false;
 
     try {
       const result = await executeCode(code, language);
       outputBuffer = result || 'Execution successful';
       outputBuffer += '\n\n=== Finished ===';
-    } catch (error: any) {
-      isError = true;
-      outputBuffer = `Error: ${error.message}`;
+    } catch (error) {
+      outputBuffer = `Error: ${error}`;
     }
 
     setOutput(outputBuffer);
