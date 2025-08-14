@@ -1,8 +1,7 @@
-import Editor from '../components/Editor';
+import dynamic from 'next/dynamic';
+
+const Editor = dynamic(() => import('../components/Editor'), { ssr: false });
+
 export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <Editor />
-    </div>
-  );
+  return <Editor />;
 }
