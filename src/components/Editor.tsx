@@ -18,6 +18,7 @@ const Editor = () => {
   const [language, setLanguage] = useState<'python' | 'javascript' | 'go' | 'php' | 'rust' | 'cpp'>('python');
   const [outputColor, setOutputColor] = useState<string>('text-green-500');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showBackendPopup, setShowBackendPopup] = useState(true);
 
   const handleLanguageChange = (lang: 'python' | 'javascript' | 'go' | 'php' | 'rust' | 'cpp') => {
     setLanguage(lang);
@@ -86,6 +87,29 @@ const Editor = () => {
 
   return (
     <div className={`w-full min-h-screen ${appBackground} font-mono flex flex-col md:flex-row transition-all`}>
+      {showBackendPopup && (
+          <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-70 z-50 backdrop-blur-sm">
+            <div className="bg-white rounded-3xl p-8 shadow-xl max-w-md text-center space-y-6 border-l-8 border-blue-500 animate-fade-in font-sans">
+              <div className="text-4xl font-extrabold text-blue-600 flex justify-center items-center space-x-3">
+                <span className="inline-block transform transition-transform duration-500 ease-in-out hover:scale-110">🚀</span>
+                <span>Notice</span>
+              </div>
+              <p className="text-gray-800 text-lg leading-relaxed">
+                I&apos;ve deployed the backend locally.<br />
+                Want to test this? Just let me know through{' '}
+                <a href="mailto:kappalasaimohith2003@gmail.com" className="text-blue-600 underline hover:text-blue-800 font-bold">mail</a><br />
+                I&apos;ll run my backend. <span className="text-blue-600">👨‍💻</span>
+              </p>
+              <button
+                className="mt-2 px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 hover:shadow-blue-500/70 transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                onClick={() => setShowBackendPopup(false)}
+              >
+                Got it!
+              </button>
+            </div>
+          </div>
+        )}
+
       <div className={`flex justify-start md:flex-col items-center md:items-start ${languageSelectorBg} p-2 space-x-4 md:space-x-0 md:space-y-4`}>
         {Object.entries(languages).map(([lang, config]) => (
           <button
